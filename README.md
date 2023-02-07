@@ -1,2 +1,2 @@
 # curso-algoritmos
-Curso de algoritmos do Rober Sedgewick 
+Curso de algoritmos do Rober Sedgewick
