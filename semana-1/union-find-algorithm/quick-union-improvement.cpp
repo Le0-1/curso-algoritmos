@@ -1,7 +1,7 @@
 #include <iostream>
 
 class QuickUnionUF {
-    private:
+    public:
         int _number_of_objects = 0;
         int* _id = new int[_number_of_objects];
         int* _size_of_tree = new int[_number_of_objects];
@@ -33,9 +33,11 @@ class QuickUnionUF {
 
         void uniao(int p, int q) {
             int raizDeP = this->raiz(p); 
-            int raizDeQ = this->raiz(q); 
+            int raizDeQ = this->raiz(q);
+
+            if (raizDeP == raizDeQ) return;
             
-            if (this->_size_of_tree[raizDeP] < this->_size_of_tree[raizDeQ]) {
+            else if (this->_size_of_tree[raizDeP] < this->_size_of_tree[raizDeQ]) {
                 this->_id[raizDeP] = raizDeQ;
                 this->_size_of_tree[raizDeQ]+= this->_size_of_tree[raizDeP]; 
             } 
@@ -48,6 +50,5 @@ class QuickUnionUF {
 };
 
 int main() {
-
 
 }
