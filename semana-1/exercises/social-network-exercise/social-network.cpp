@@ -70,14 +70,14 @@ class QuickUnionUF {
                 this->_size_of_tree[raizDeQ]+= this->_size_of_tree[raizDeP];
 
                 //Diminuindo o número de componenetes com base no número de nós que a árvore adicionada tinha
-                this->number_of_components-= this->_size_of_tree[raizDeP];
+                this->number_of_components-= 1;
             } 
             else {
                 this->_id[raizDeQ] = raizDeP;
                 this->_size_of_tree[raizDeP]+= this->_size_of_tree[raizDeQ];
 
                 //Diminuindo o número de componenetes com base no número de nós que a árvore adicionada tinha
-                this->number_of_components-= this->_size_of_tree[raizDeQ];
+                this->number_of_components-= 1;
             }
         }
 

@@ -46,12 +46,12 @@ void WeightedQuickUnion::connectNodes(Node& firstNode, Node& secondNode) {
     else if (sizeTreeFirstNode < sizeTreeSecondNode) {
         this->_node[rootFirstNode]._id_of_node = rootSecondNode;
         this->_node[rootSecondNode]._size_of_tree+= sizeTreeFirstNode;
-        this->_number_of_components-= sizeTreeFirstNode;
+        this->_number_of_components-= 1;
     }
 
     else {
         this->_node[rootSecondNode]._id_of_node = rootFirstNode;
         this->_node[rootFirstNode]._size_of_tree+= sizeTreeSecondNode;
-        this->_number_of_components-= sizeTreeSecondNode;
+        this->_number_of_components-= 1;
     }
 }
