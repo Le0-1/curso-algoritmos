@@ -1,6 +1,7 @@
 CC = g++
 NAME = program
 CFLAGS = --std=c++11 -Wall -O2
+DEBUG_FLAG =
 
 BUILD_DIR = ./build
 INCLUDE_DIR = ./include
@@ -31,8 +32,15 @@ run: all
 valgrind:
 	valgrind --leak-check=full $(BUILD_DIR)/$(NAME)
 
+debug: clean_build var all
+
+var:
+	$(eval DEBUG_FLAG = -g)
+
 clean_build:
 	rm -f $(BUILD_DIR)/*.o
+	rm -f $(BUILD_DIR)/*.gcda
+	rm -f $(BUILD_DIR)/*.gcno
 	rm -f $(BUILD_DIR)/$(NAME)
 
 clean: clean_build

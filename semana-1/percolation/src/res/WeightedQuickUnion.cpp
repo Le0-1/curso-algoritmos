@@ -3,16 +3,16 @@
 #include <iostream>
 
 WeightedQuickUnion::WeightedQuickUnion(unsigned numberOfNodes) {
-    this->_nodes.reserve(numberOfNodes);
+    // this->_nodes.reserve(numberOfNodes);
 
-    // for (unsigned i = 0; i < numberOfNodes; i++) {
-    //     Node new_node;
-    //     new_node._id_of_node = i;
-    //     new_node._size_of_tree = 1;
-    //     this->_nodes.push_back(new_node);
-    // }
+    for (unsigned i = 0; i < numberOfNodes; i++) {
+        Node new_node;
+        new_node._id_of_node = i;
+        new_node._size_of_tree = 1;
+        this->_nodes.push_back(new_node);
+    }
 
-    this->_number_of_components = numberOfNodes;
+    this->_number_of_components = numberOfNodes + 2; // virtal bottom and top nodes
 }
 
 unsigned WeightedQuickUnion::getComponents() {
@@ -57,4 +57,8 @@ void WeightedQuickUnion::connectNodes(Node& firstNode, Node& secondNode) {
     }
 
     this->_number_of_components-= 1;
+}
+
+std::vector<Node>& WeightedQuickUnion::getNodes() {
+    return this->_nodes;
 }

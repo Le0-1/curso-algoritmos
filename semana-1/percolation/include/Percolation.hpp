@@ -8,29 +8,20 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 
 //Struct para armazenar os dados necessários de um "Site" (local) no Grid
-struct Site {
-    Node _node;
-    bool is_open;
-};
 
 class Percolation { 
-    private:
+    public:
         //O grid é um vector de "Sites" (locais);
-        std::vector<Site> _grid;
+        std::vector<bool> _grid;
 
         //Váriavel para guardar o tamanho do grid, se o grid é n-por-n, a váriavel tera valor n
         unsigned _grid_size;
 
         //Algoritmo responsável por fazer as uniões
         WeightedQuickUnion* _algoritmo;
-
-        //Váriavel para conectar o top row a ela, ficando mais fácil verificar se o grid foi "percolado"
-        Node _virtual_top_node; 
-
-        //Váriavel para conectar o bottom row a ela, ficando mais fácil verificar se o grid foi "percolado"
-        Node _virtual_bottom_node; 
 
     public:
 

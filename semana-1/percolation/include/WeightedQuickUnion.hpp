@@ -24,6 +24,8 @@ class WeightedQuickUnion {
         unsigned findRoot(Node& Node);
 
         unsigned getComponents();
+
+        std::vector<Node>& getNodes();
 };
 
 
