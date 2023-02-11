@@ -3,5 +3,5 @@
 #include "WeightedQuickUnion.hpp"
 
 int main() {
-    
+   Percolation percolation(10);
 }

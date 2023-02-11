@@ -3,20 +3,18 @@
 
 #include <vector>
 
-
+struct Node {
+    unsigned _id_of_node;
+    unsigned _size_of_tree;
+};
 
 class WeightedQuickUnion {
-    public:    
-        struct Node {
-            unsigned _id_of_node;
-            unsigned _size_of_tree;
-        };
-
-        std::vector<Node> _node;
-
+    private:    
+        std::vector<Node> _nodes;
         unsigned _number_of_components;
 
     public:
+
         WeightedQuickUnion(unsigned numberOfNodes);
 
         void connectNodes(Node& firstNode, Node& secondNode);
