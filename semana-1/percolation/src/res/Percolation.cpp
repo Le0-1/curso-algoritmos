@@ -21,7 +21,9 @@ Percolation::Percolation(unsigned n)  {
 }
 
 //Função para dar um id e size da árvore para os nós virtuais, é bom notar que o número de elementos no grid
-//nao aumenta com a adição desses dois nós, já que eles são apenas auxiliares
+//nao aumenta com a adição desses dois nós, já que eles são apenas auxiliares. Eles servem
+//para informar quando algum nó conectado com a parte de baixo encontra um nó com a parte de cima,
+//ou seja, quando a raizes dós nós virtuais são iguais.
 void Percolation::initializeVirtalNodes(unsigned n) {
     
     //Id do nó é n * n pois assim eu nunca vou ter um mesmo id que algum outro nó que
@@ -59,7 +61,6 @@ void Percolation::open(unsigned row, unsigned col) {
         this->_grid[correctIndex] = SITE_IS_OPEN;
         this->_number_of_open_sites+= 1;
     }
-
     else {
         return; 
     }
@@ -67,9 +68,7 @@ void Percolation::open(unsigned row, unsigned col) {
     //Preciso conectar os nó que representa o "site" aberto com os outros 
     //nós que representam os "sites" adjacentes, se estiverem abertos.
     this->connectWithAdjacentSites(row, col);
-     
 }
-
 
 //Como escrito na linha 67, preciso conectar os nós que estão abertos se eles forem adjacentes
 //para manter o "track" do grid e verificar se o grid foi "percolado"
@@ -138,12 +137,9 @@ bool Percolation::percolates() {
     unsigned bottomRoot = this->_algorithm->findRoot(this->virtual_bottom_node);
 
     if (topRoot == bottomRoot) {
-        std::cout << "O GRID FOI PERCOLADO" << "\n";
         return true;
     }
-
     else {
-        std::cout << "O GRID NÃO FOI PERCOLADO" << "\n";
         return false;
     }
 }

@@ -10,10 +10,8 @@
 #include <vector>
 #include <memory>
 
-
-
 class Percolation { 
-    public:
+    private:
         //O grid é um vector de "Sites" (locais) abertos ou fechados
         std::vector<bool> _grid;
 
@@ -49,6 +47,7 @@ class Percolation {
         bool isOpen(unsigned row, unsigned col);
 
         //O local (row, col) está cheio?
+        //Acabei não usando esse método
         bool isFull(unsigned row, unsigned col);
 
         // Retorna o número de locais abertos

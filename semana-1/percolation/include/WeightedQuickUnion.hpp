@@ -3,6 +3,8 @@
 
 #include <vector>
 
+//Estrutura para representa um "site"(local/quadrado) do grid, que irá ser manipulado
+//pelo algoritmo de weighted quick union
 struct Node {
     unsigned _id_of_node;
     unsigned _size_of_tree;
@@ -14,7 +16,6 @@ class WeightedQuickUnion {
         unsigned _number_of_components;
 
     public:
-
         //Cria os nós responsáveis pelo representação do grid da classe Percolation
         WeightedQuickUnion(unsigned numberOfNodes);
 
